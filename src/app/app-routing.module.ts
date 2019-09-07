@@ -8,11 +8,11 @@ const routes: Routes = [
   },
   {
     path: "messages",
-    loadChildren: "./features/groups/messages.module#MessagesModule"
+    loadChildren: "./features/messages/messages.module#MessagesModule"
   },
   {
-    path: "vidoeCalls",
-    loadChildren: "./features/groups/video-calls.module#VideoCallsModule"
+    path: "videoCalls",
+    loadChildren: "./features/video-calls/video-calls.module#VideoCallsModule"
   }
 ];
 
