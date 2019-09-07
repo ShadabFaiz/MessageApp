@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light">
   <a class="navbar-brand" href="#">
     <img src="favicon.ico" alt="Messenger" />
   </a>
@@ -16,28 +16,12 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav" style="width: 100%">
       <mat-tab-group (selectedTabChange)="onTabChange($event)">
-        <mat-tab (click)="navigateTo('groups')">
+        <mat-tab (click)="navigateTo(tab.url)" *ngFor="let tab of tabs">
           <ng-template mat-tab-label>
             <i class="material-icons">
-              group
+              {{ tab.icon }}
             </i>
-            <span>Groups</span>
-          </ng-template>
-        </mat-tab>
-        <mat-tab (click)="navigateTo('messages')">
-          <ng-template mat-tab-label>
-            <i class="material-icons">
-              message
-            </i>
-            <span>Messages</span>
-          </ng-template>
-        </mat-tab>
-        <mat-tab (click)="navigateTo('videoCalls')">
-          <ng-template mat-tab-label>
-            <i class="material-icons">
-              videocam
-            </i>
-            <span>Video Calls</span>
+            <span>{{ tab.name }}</span>
           </ng-template>
         </mat-tab>
       </mat-tab-group>

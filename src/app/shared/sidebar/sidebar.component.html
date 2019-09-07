@@ -1,0 +1,38 @@
+<div class="sidebarWrapper">
+  <div class="userDetails">
+    <img [src]="user.imgUrl" [alt]="user.name" />
+    <strong>{{ user.name }}</strong>
+    <p class="quotes">{{ user.quotes }}</p>
+  </div>
+
+  <div class="routings">
+    <div *ngFor="let navigation of navigationOptions; let i = index">
+      <a
+        class="parentUrl"
+        data-toggle="collapse"
+        href="#ab{{ i }}"
+        role="button"
+        aria-expanded="false"
+        aria-controls="collapseExample"
+        [ngClass]="{ activeTab: isCurrentTabActive(navigation.url) }"
+      >
+        <i class="material-icons">
+          {{ navigation.icon }}
+        </i>
+        {{ navigation.name }}
+      </a>
+
+      <div class="collapse" id="ab{{ i }}">
+        <div
+          *ngFor="let child of navigation.childrens"
+          class="childRouting"
+          (click)="navigateTo(navigation.url)"
+        >
+          <a>
+            {{ child.name }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+$boder-radius: 5px;
+$text-color: rgb(233, 123, 141);
+$background-color: rgb(233, 123, 141);
+$activeTab: (
+  background: rgb(233, 123, 141),
+  color: white
+);
+
+$default-transition: all 0.5s ease-out;
+
+.sidebarWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  align-content: center;
+}
+
+.userDetails {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: column;
+  align-content: center;
+  text-align: center;
+  img {
+    width: 30%;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
+  }
+
+  .quotes {
+    color: gray;
+  }
+}
+
+.routings {
+  .parentUrl {
+    text-align: center;
+    display: flex;
+    width: 50%;
+    padding: 2% 5%;
+    box-shadow: 1px 1px 8px 2px #e0e0e0;
+    margin: 5% auto;
+    color: black;
+    transition: $default-transition;
+
+    text-decoration: none;
+    border-radius: $boder-radius;
+
+    i {
+      margin: 1% 5%;
+      color: #c7c7c7;
+    }
+  }
+  .childRouting {
+    width: 50%;
+    padding: 1% 5%;
+    margin: 1% auto;
+    cursor: pointer;
+  }
+
+  .childRouting:hover {
+    color: $text-color;
+    transition: $default-transition;
+  }
+
+  .activeTab,
+  .activeTab > i {
+    background: map-get($activeTab, background);
+    color: map-get($activeTab, color);
+  }
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Router } from '@angular/router';
+import { navigationOptions } from 'src/app/models/navigationOptions';
 
 @Component({
   selector: "app-navbar",
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
+  tabs = navigationOptions;
   constructor(private router: Router) {}
 
   ngOnInit() {}
