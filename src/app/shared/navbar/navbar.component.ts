@@ -13,12 +13,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {}
 
   navigateTo(url: string) {
-    console.log("navigating to ", url);
     this.router.navigateByUrl(url);
   }
 
   onTabChange(obj: MatTabChangeEvent) {
-    console.log(`tab changes`, obj);
     switch (obj.index) {
       case 0:
         return this.navigateTo(`/groups`);

@@ -5,3 +5,26 @@ mat-tab-group {
     margin: 1% 9%;
   }
 }
+
+.rightSide {
+  width: 200px;
+
+  i {
+    cursor: pointer;
+  }
+
+  i,
+  span {
+    margin: 1% 6%;
+  }
+  .user_profile {
+    width: 46px;
+    display: inline-block;
+    border-radius: 50%;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+}
