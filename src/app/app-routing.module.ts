@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: "./features/groups/groups.module#GroupsModule"
   },
   {
-    path: "groups",
+    path: "messages",
     loadChildren: "./features/groups/messages.module#MessagesModule"
   },
   {

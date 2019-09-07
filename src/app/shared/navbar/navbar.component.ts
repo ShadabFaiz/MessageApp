@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,6 +13,19 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {}
 
   navigateTo(url: string) {
+    console.log("navigating to ", url);
     this.router.navigateByUrl(url);
+  }
+
+  onTabChange(obj: MatTabChangeEvent) {
+    console.log(`tab changes`, obj);
+    switch (obj.index) {
+      case 0:
+        return this.navigateTo(`/groups`);
+      case 1:
+        return this.navigateTo(`/messages`);
+      case 2:
+        return this.navigateTo(`/videoCalls`);
+    }
   }
 }
