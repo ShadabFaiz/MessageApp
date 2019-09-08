@@ -38,6 +38,8 @@ i {
     width: 70%;
     height: 100%;
     padding: 1%;
+    transition: all 0.5 ease-in-out;
+    animation: fade-in 0.5s forwards;
     position: relative;
     overflow: hidden;
     mat-tab-group {
@@ -76,6 +78,7 @@ form {
   button[type="submit"] {
     background: #e97b8d;
     color: white;
+    outline: none;
 
     i {
       color: white;
@@ -185,12 +188,16 @@ form {
 
 .line {
   margin: 2% 1%;
+  transform: translate(0%, 30%);
+  opacity: 1;
+  animation: bottomToTop 1s forwards;
 
+  // animation-fill-mode: forwards;
   span {
     display: inline-block;
     padding: 2% 4%;
     border-radius: 14px;
-    max-width: 100%;
+    max-width: 50%;
     word-break: break-all;
     background: #ffeff2;
     color: #ff607e;
@@ -224,9 +231,38 @@ form {
 
   .details {
     display: inline-block;
+    width: 65%;
   }
 }
 
 .user:hover {
   background: #ffeff2;
+}
+
+.activeUser {
+  background: #ffeff2;
+}
+
+.float_right {
+  transform: translateX(100%);
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bottomToTop {
+  0% {
+    opacity: 0;
+    transform: translate(0%, 50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0%, 0%);
+  }
 }

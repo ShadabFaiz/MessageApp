@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 
+import { IUser } from '../models/user';
+
 @Injectable({
   providedIn: "root"
 })
 export class UserService {
-  private readonly DEFAULT_USERS = [
+  private readonly DEFAULT_USERS: IUser[] = [
     {
       name: "Superman",
       imgUrl: "/assets/images/superman.jpg",
-      quotes: "Some quotes goes here....",
+      quotes: "Why do we fall, sir? So that we can learn to pick ourselves up",
       chatHistory: [
         {
-          message: "some thing",
-          date: Date.now()
+          message:
+            "There is a superhero in all of us, we just need the courage to put on the cape.",
+          date: new Date()
         }
       ]
     },
@@ -22,8 +25,9 @@ export class UserService {
       quotes: "Some quotes goes here....",
       chatHistory: [
         {
-          message: "some thing",
-          date: Date.now()
+          message:
+            "Its unfortunate that I can't speak to you...but hey, I'm a very good listener. You can tell me anything and no one will know about it. I promise.",
+          date: new Date()
         }
       ]
     },
@@ -33,8 +37,9 @@ export class UserService {
       quotes: "Some quotes goes here....",
       chatHistory: [
         {
-          message: "some thing",
-          date: Date.now()
+          message:
+            "Hello there....Geenral Kanobi. There is untouched timeline.....",
+          date: new Date()
         }
       ]
     }

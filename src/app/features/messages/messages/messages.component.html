@@ -20,17 +20,22 @@
         </mat-tab>
       </mat-tab-group>
 
-      <div *ngFor="let user of users" class="user">
+      <div
+        *ngFor="let user of users"
+        class="user"
+        (click)="showChatof(user)"
+        [ngClass]="{ activeUser: user?.name === currentUserInChat?.name }"
+      >
         <img [src]="user.imgUrl" [alt]="user.name" />
         <div class="details">
-          <span>{{ user.name }}</span
+          <span style="font-weight: 600">{{ user.name }}</span
           ><br />
-          <small> {{ user.quotes }} </small>
+          <small style="color: gray"> {{ user.quotes }} </small>
         </div>
       </div>
     </section>
 
-    <section class="chatWrapper">
+    <section class="chatWrapper" *ngIf="currentUserInChat">
       <mat-tab-group>
         <mat-tab>
           <ng-template mat-tab-label>
@@ -50,7 +55,9 @@
 
       <div class="chatBox" #chatBox>
         <p *ngFor="let chat of chatHistory" class="line">
-          <span> {{ chat.message }}</span>
+          <span [ngClass]="{ float_right: !chat.user }">
+            {{ chat.message }}
+          </span>
         </p>
       </div>
 

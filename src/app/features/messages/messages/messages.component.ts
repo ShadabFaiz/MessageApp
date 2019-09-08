@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { chatOption } from 'src/app/models/chatOptions';
+import { IUser } from 'src/app/models/user';
 import { ChatService } from 'src/app/services/chat.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,12 +11,13 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ["./messages.component.scss"]
 })
 export class MessagesComponent implements OnInit {
-  @ViewChild("chatBox", { static: true }) chatBox: ElementRef<any>;
+  @ViewChild("chatBox", { static: false }) chatBox: ElementRef<any>;
   chatOption = chatOption;
   chatForm: FormGroup;
 
   chatHistory = [];
-  users: { name: string; imgUrl: string; quotes: string; chatHistory: {}[] }[];
+  users: IUser[];
+  currentUserInChat: IUser;
 
   constructor(
     private fb: FormBuilder,
@@ -34,15 +36,31 @@ export class MessagesComponent implements OnInit {
     element.classList.toggle(`show`);
   }
 
+  showChatof(user: IUser) {
+    this.currentUserInChat = user;
+    this.resetChatHistory();
+    this.updateChatHistory(user.chatHistory || []);
+  }
+
   onUserMessageSubmit(form: FormGroup) {
-    this.addMessageToChatHistory(form);
+    const message = form.controls.message.value.trim();
+    if (message) {
+      this.addMessageToChatHistory(message);
+    }
     form.reset();
     this.scrollChatBoxToBottom();
   }
 
-  addMessageToChatHistory(form: FormGroup) {
-    const message = form.controls.message.value;
+  addMessageToChatHistory(message: string) {
     this.chatHistory = [...this.chatHistory, this.createMesssageObj(message)];
+  }
+
+  private updateChatHistory(newChat: any[]) {
+    this.chatHistory = [...this.chatHistory, ...newChat];
+  }
+
+  private resetChatHistory() {
+    this.chatHistory = [];
   }
 
   private fetchChatHistory() {
@@ -63,7 +81,7 @@ export class MessagesComponent implements OnInit {
     return {
       message,
       user: "you",
-      date: Date.now()
+      date: new Date()
     };
   }
 
