@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { chatOption } from 'src/app/models/chatOptions';
+import { ChatService } from 'src/app/services/chat.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: "app-messages",
@@ -12,29 +14,21 @@ export class MessagesComponent implements OnInit {
   chatOption = chatOption;
   chatForm: FormGroup;
 
-  chatHistory = [
-    {
-      user: "you",
-      message: "Hellooooo there... General Kanobi",
-      date: Date.now()
-    },
-    {
-      user: "you",
-      message: "Hellooooo there... General Kanobi",
-      date: Date.now()
-    },
-    {
-      user: "you",
-      message: "Hellooooo there... General Kanobi",
-      date: Date.now()
-    }
-  ];
+  chatHistory = [];
+  users: { name: string; imgUrl: string; quotes: string }[];
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private chatService: ChatService,
+    private userService: UserService
+  ) {
     this.createChatForms();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fetchUserList();
+    this.fetchChatHistory();
+  }
 
   togleOption(element: Element) {
     element.classList.toggle(`show`);
@@ -49,6 +43,14 @@ export class MessagesComponent implements OnInit {
   addMessageToChatHistory(form: FormGroup) {
     const message = form.controls.message.value;
     this.chatHistory = [...this.chatHistory, this.createMesssageObj(message)];
+  }
+
+  private fetchChatHistory() {
+    this.chatHistory = [...this.chatService.getChatHistory()];
+  }
+
+  private fetchUserList() {
+    this.users = this.userService.getUserList();
   }
 
   private createChatForms() {
@@ -67,9 +69,7 @@ export class MessagesComponent implements OnInit {
 
   private scrollChatBoxToBottom() {
     setTimeout(() => {
-      this.chatBox.nativeElement.scrollTop =
-        this.chatBox.nativeElement.scrollHeight + 100;
-      console.log(this.chatBox.nativeElement.scrollHeight);
+      this.chatBox.nativeElement.scrollTop = this.chatBox.nativeElement.scrollHeight;
     }, 50);
   }
 }

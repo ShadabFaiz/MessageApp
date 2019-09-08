@@ -8,7 +8,26 @@
 
   <div class="content">
     <section class="userList">
-      Users will be here
+      <!-- <h5>
+        Chats <span>{{ users.length }}/{{ users.length }}</span>
+      </h5> -->
+
+      <mat-tab-group>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <span>Chats</span>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+
+      <div *ngFor="let user of users" class="user">
+        <img [src]="user.imgUrl" [alt]="user.name" />
+        <div class="details">
+          <span>{{ user.name }}</span
+          ><br />
+          <small> {{ user.quotes }} </small>
+        </div>
+      </div>
     </section>
 
     <section class="chatWrapper">
@@ -59,7 +78,11 @@
           color="pink"
           appearance="none"
         >
-          <input matInput value="Sushi" formControlName="message" />
+          <input
+            matInput
+            placeholder="Type here....."
+            formControlName="message"
+          />
         </mat-form-field>
 
         <button type="submit" mat-button>

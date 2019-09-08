@@ -1,5 +1,5 @@
 export const User = {
-  name: "Testing User",
+  name: "I'm Batman",
   imgUrl: "/assets/images/batman.png",
   quotes: "Some quotes goes here...."
 };

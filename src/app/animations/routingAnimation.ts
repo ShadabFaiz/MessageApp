@@ -6,6 +6,7 @@ const EXIT_ANIMATION_DURATION = ".3s";
 export const fadeAnimation = trigger("fadeAnimation", [
   // The '* => *' will trigger the animation to change between any two states
   transition("* => *", [
+    // Animation for component which will enter into view.
     query(
       ":enter",
       [
@@ -19,9 +20,10 @@ export const fadeAnimation = trigger("fadeAnimation", [
         optional: true
       }
     ),
+
+    // Animation for component which will exit/get destoryed from view.
     query(
       ":leave",
-      // here we apply a style and use the animate function to apply the style over 0.3 seconds
       [
         style({ opacity: 1, position: "absolute" }),
         animate(
@@ -31,6 +33,8 @@ export const fadeAnimation = trigger("fadeAnimation", [
       ],
       { optional: true }
     ),
+
+    // Animate
     query(
       ":enter",
       [
