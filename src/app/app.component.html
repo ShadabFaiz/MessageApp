@@ -2,5 +2,7 @@
 
 <section>
   <app-sidebar class="sidebar"></app-sidebar>
-  <router-outlet></router-outlet>
+  <div [@fadeAnimation]="o.isActivated ? o.activatedRoute : ''">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
 </section>

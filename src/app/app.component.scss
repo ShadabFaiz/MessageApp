@@ -4,7 +4,7 @@ $boder-radius: 5px;
 section {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: flex-start;
   margin-top: 2%;
 
   .sidebar {
@@ -12,8 +12,14 @@ section {
     // background: white;
     border-radius: $boder-radius;
     // box-shadow: $shadow;
-    width: 25%;
+    width: 21%;
     height: 80vh;
     min-height: fit-content;
   }
+}
+
+router-outlet ~ * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
