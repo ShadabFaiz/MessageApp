@@ -15,7 +15,7 @@ export class MessagesComponent implements OnInit {
   chatForm: FormGroup;
 
   chatHistory = [];
-  users: { name: string; imgUrl: string; quotes: string }[];
+  users: { name: string; imgUrl: string; quotes: string; chatHistory: {}[] }[];
 
   constructor(
     private fb: FormBuilder,

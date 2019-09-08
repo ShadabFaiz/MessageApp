@@ -114,12 +114,24 @@ form {
 
   span {
     position: relative;
-    height: fit-content;
+    // height: fit-content;
     display: inline-flex;
     flex-wrap: wrap;
-    width: 20%;
-    margin: unset;
+    width: 23%;
+    padding: 0.1% 0.7%;
+    border-radius: 5px;
+    margin: 0.5%;
+    transition: all 0.5s ease-in-out;
+    margin: 0.5%;
     cursor: pointer;
+  }
+
+  .option:hover {
+    background: pink;
+    color: #ff607e;
+    i {
+      color: #ff607e;
+    }
   }
 }
 
@@ -187,7 +199,7 @@ form {
 }
 
 .userList {
-  padding: 1%;
+  padding: 1% 0%;
 
   h5 {
     color: gray;
@@ -202,6 +214,8 @@ form {
 .user {
   border-bottom: 1px solid rgb(197, 197, 197);
   padding: 7% 1%;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
   img {
     width: 24%;
     border-radius: 50%;
@@ -211,4 +225,8 @@ form {
   .details {
     display: inline-block;
   }
+}
+
+.user:hover {
+  background: #ffeff2;
 }
