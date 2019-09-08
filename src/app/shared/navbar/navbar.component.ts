@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTabChangeEvent } from '@angular/material/tabs';
+import { MatTab, MatTabChangeEvent } from '@angular/material/tabs';
 import { Router } from '@angular/router';
 import { navigationOptions } from 'src/app/models/navigationOptions';
 
@@ -10,6 +10,8 @@ import { navigationOptions } from 'src/app/models/navigationOptions';
 })
 export class NavbarComponent implements OnInit {
   tabs = navigationOptions;
+
+  activeTab;
   constructor(private router: Router) {}
 
   ngOnInit() {}
@@ -19,13 +21,11 @@ export class NavbarComponent implements OnInit {
   }
 
   onTabChange(obj: MatTabChangeEvent) {
-    switch (obj.index) {
-      case 0:
-        return this.navigateTo(`/groups`);
-      case 1:
-        return this.navigateTo(`/messages`);
-      case 2:
-        return this.navigateTo(`/videoCalls`);
-    }
+    this.setActiveTab(obj.tab);
+    this.navigateTo(this.tabs[obj.index].url);
+  }
+
+  setActiveTab(tab: MatTab) {
+    this.activeTab = tab;
   }
 }

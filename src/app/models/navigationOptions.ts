@@ -1,22 +1,5 @@
 export const navigationOptions = [
   {
-    name: "Messages",
-    icon: "chat_bubble",
-    url: "/messages",
-    childrens: [
-      {
-        name: "Chats",
-        url: "",
-        icon: ""
-      },
-      {
-        name: "Send Messages",
-        url: "",
-        icon: ""
-      }
-    ]
-  },
-  {
     name: "Groups",
     icon: "group",
     url: "/groups",
@@ -28,6 +11,23 @@ export const navigationOptions = [
       },
       {
         name: "Create Groups",
+        url: "",
+        icon: ""
+      }
+    ]
+  },
+  {
+    name: "Messages",
+    icon: "chat_bubble",
+    url: "/messages",
+    childrens: [
+      {
+        name: "Chats",
+        url: "",
+        icon: ""
+      },
+      {
+        name: "Send Messages",
         url: "",
         icon: ""
       }
