@@ -1,7 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+$shadow: 1px 1px 10px 5px gray;
+$background-color: rgb(233, 123, 141);
 
 body {
-  background: #e8e8e8;
+  background: #f7f7f7;
   overflow: auto;
+}
+
+.componentContainer > .content {
+  background: white;
+  display: inline-flex;
+  width: 70vw;
+  box-shadow: 1px 1px 8px 2px #e0e0e0;
+  height: 70vh;
+  border-radius: 5px;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background: $background-color;
 }

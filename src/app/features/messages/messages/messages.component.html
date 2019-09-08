@@ -1,1 +1,54 @@
-<p>messages works!</p>
+<div class="componentContainer">
+  <div class="componentDescription">
+    <i class="material-icons">
+      chat_bubble
+    </i>
+    <span class="componentName">Messages</span>
+  </div>
+
+  <div class="content">
+    <section class="userList">
+      Users wil lhe here
+    </section>
+
+    <section class="chatWrapper">
+      <mat-tab-group>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <i class="material-icons">
+              remove_red_eye
+            </i>
+            <span>REPLIES</span>
+          </ng-template>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <i class="material-icons">
+              remove_red_eye
+            </i>
+            <span>REPORTS</span>
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+
+      <form class="userInput">
+        <i class="material-icons options">
+          add_circle
+        </i>
+
+        <div class="add_options">
+          <span *ngFor="let option of chatOption">
+            <i class="material-icons">
+              {{ option.icon }}
+            </i>
+            {{ option.name }}
+          </span>
+        </div>
+
+        <mat-form-field class="example-full-width">
+          <input matInput value="Sushi" />
+        </mat-form-field>
+      </form>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+$background-color: rgb(233, 123, 141);
+$default-shadow: 1px 1px 10px #c4c4c4;
+
+i {
+  color: $background-color;
+  text-shadow: 1px 1px 5px #c4c4c4;
+}
+.componentName {
+  font-size: 1.5em;
+  margin-left: 2%;
+  font-weight: 500;
+}
+
+.componentDescription {
+  margin: 0.5% auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+
+  i {
+    color: $background-color;
+    font-size: 2em;
+    text-shadow: $default-shadow;
+  }
+}
+
+.content {
+  .userList,
+  .userList {
+    width: 30%;
+    height: 100%;
+    border-right: 1px solid rgb(197, 197, 197);
+  }
+
+  .chatWrapper {
+    width: 70%;
+    height: 100%;
+    padding: 1%;
+    position: relative;
+    overflow: hidden;
+    mat-tab-group {
+      i {
+        margin-right: 10%;
+      }
+    }
+  }
+}
+
+mat-tab {
+  position: relative;
+}
+.userInput {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  border-top: 1px solid #cecece;
+}
+
+form > mat-form-field {
+  width: 80%;
+}
+
+form {
+  i {
+    margin-right: 1%;
+    padding-bottom: 0.34375em;
+    cursor: pointer;
+  }
+
+  i:hover .add_options {
+    background: green;
+  }
+}
+
+.add_options {
+  min-width: fit-content;
+  width: 23vw;
+  border-radius: 5px;
+  border: 1px solid gray;
+  padding: 0.3% 2%;
+  // position: absolute;
+  // opacity: 0;
+  // z-index: -111;
+
+  span {
+    position: relative;
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 20%;
+    margin: unset;
+    cursor: pointer;
+  }
+}
+
+.options:hover .add_options {
+  background: red;
+
+  //  {
+  //   position: relative;
+  //   opacity: 1;
+  //   z-index: 11;
+  // }
+}

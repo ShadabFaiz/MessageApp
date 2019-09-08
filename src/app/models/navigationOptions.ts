@@ -1,7 +1,7 @@
 export const navigationOptions = [
   {
     name: "Messages",
-    icon: "message",
+    icon: "chat_bubble",
     url: "/messages",
     childrens: [
       {
