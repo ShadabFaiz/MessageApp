@@ -1,9 +1,10 @@
 $background-color: rgb(233, 123, 141);
 $default-shadow: 1px 1px 10px #c4c4c4;
+$default-border: 1px solid gray;
 
 i {
   color: $background-color;
-  text-shadow: 1px 1px 5px #c4c4c4;
+  // text-shadow: 1px 1px 5px #c4c4c4;
 }
 .componentName {
   font-size: 1.5em;
@@ -67,24 +68,38 @@ form {
     padding-bottom: 0.34375em;
     cursor: pointer;
   }
+}
 
-  i:hover .add_options {
-    background: green;
-  }
+::ng-deep .mat-input-underline {
+  display: none;
 }
 
 .add_options {
   min-width: fit-content;
-  width: 23vw;
+  width: 60%;
+  color: rgb(143, 143, 143);
   border-radius: 5px;
-  border: 1px solid gray;
-  padding: 0.3% 2%;
-  // position: absolute;
-  // opacity: 0;
-  // z-index: -111;
+  border: 1px solid rgb(212, 212, 212);
+  padding: 0.5% 2%;
+  transition: all 0.5s ease-in;
+  position: absolute;
+
+  .arrow {
+    display: inline-block;
+    padding: 2%;
+    background: red;
+    position: absolute;
+    left: 0px;
+    background: white;
+    border-right: 1px solid rgb(212, 212, 212);
+    border-bottom: 1px solid rgb(212, 212, 212);
+    bottom: 0px;
+    transform: translate(10px, 9px) rotate(45deg);
+  }
 
   span {
     position: relative;
+    height: fit-content;
     display: inline-flex;
     flex-wrap: wrap;
     width: 20%;
@@ -93,12 +108,29 @@ form {
   }
 }
 
-.options:hover .add_options {
-  background: red;
-
-  //  {
-  //   position: relative;
-  //   opacity: 1;
-  //   z-index: 11;
-  // }
+.hide {
+  transform: translate(0);
+  opacity: 0;
+  z-index: 0;
 }
+
+.show {
+  transform: translate(0%, -280%);
+  z-index: 1;
+  opacity: 1;
+}
+
+.options {
+  font-size: 2em;
+  transform-origin: 50% 50%;
+  transition: all 0.5s ease-in-out;
+}
+.options:hover {
+  transform: rotate(45deg);
+}
+
+// .options:hover + .add_options {
+//   transform: translate(0%, -280%);
+//   z-index: 1;
+//   opacity: 1;
+// }

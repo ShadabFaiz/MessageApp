@@ -32,11 +32,12 @@
       </mat-tab-group>
 
       <form class="userInput">
-        <i class="material-icons options">
+        <i class="material-icons options" (click)="togleOption(optionsElement)">
           add_circle
         </i>
 
-        <div class="add_options">
+        <div class="add_options" #optionsElement>
+          <div class="arrow"></div>
           <span *ngFor="let option of chatOption">
             <i class="material-icons">
               {{ option.icon }}
