@@ -8,7 +8,7 @@
 
   <div class="content">
     <section class="userList">
-      Users wil lhe here
+      Users will be here
     </section>
 
     <section class="chatWrapper">
@@ -29,7 +29,17 @@
         </mat-tab>
       </mat-tab-group>
 
-      <form class="userInput">
+      <div class="chatBox" #chatBox>
+        <p *ngFor="let chat of chatHistory" class="line">
+          <span> {{ chat.message }}</span>
+        </p>
+      </div>
+
+      <form
+        class="userInput"
+        (ngSubmit)="onUserMessageSubmit(chatForm)"
+        [formGroup]="chatForm"
+      >
         <i class="material-icons options" (click)="togleOption(optionsElement)">
           add_circle
         </i>
@@ -49,7 +59,7 @@
           color="pink"
           appearance="none"
         >
-          <input matInput value="Sushi" />
+          <input matInput value="Sushi" formControlName="message" />
         </mat-form-field>
 
         <button type="submit" mat-button>
