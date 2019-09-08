@@ -15,13 +15,20 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav" style="width: 100%">
-      <mat-tab-group (selectedTabChange)="onTabChange($event)">
-        <mat-tab (click)="navigateTo(tab.url)" *ngFor="let tab of tabs">
+      <mat-tab-group
+        (selectedTabChange)="onTabChange($event)"
+        [selectedIndex]="activeTabIndex"
+      >
+        <mat-tab
+          (click)="navigateTo(tab.url)"
+          *ngFor="let tab of tabs"
+          [ngClass]="{ 'mat-tab-label-active': isActiveTab(tab.url) }"
+        >
           <ng-template mat-tab-label>
             <i class="material-icons">
               {{ tab.icon }}
             </i>
-            <span>{{ tab.name }}</span>
+            <span>{{ tab.name }} </span>
           </ng-template>
         </mat-tab>
       </mat-tab-group>
@@ -36,7 +43,8 @@
         </i>
 
         <span class="user_profile">
-          <img src="/assets/images/batman.png" alt="User" />
+          <img [src]="user.imgUrl" [alt]="user.name" />
+          <span> {{ user.name }} </span>
         </span>
       </div>
     </ul>

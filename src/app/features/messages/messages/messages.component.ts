@@ -9,11 +9,7 @@ import { chatOption } from 'src/app/models/chatOptions';
 export class MessagesComponent implements OnInit {
   chatOption = chatOption;
 
-  // @ViewChild('options')
-
-  constructor() {
-    console.log("message works");
-  }
+  constructor() {}
 
   ngOnInit() {}
 

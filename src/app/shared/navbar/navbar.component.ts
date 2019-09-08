@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatTab, MatTabChangeEvent } from '@angular/material/tabs';
-import { Router } from '@angular/router';
+import { MatTabChangeEvent } from '@angular/material/tabs';
+import { NavigationEnd, Router } from '@angular/router';
 import { navigationOptions } from 'src/app/models/navigationOptions';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: "app-navbar",
@@ -11,8 +12,13 @@ import { navigationOptions } from 'src/app/models/navigationOptions';
 export class NavbarComponent implements OnInit {
   tabs = navigationOptions;
 
-  activeTab;
-  constructor(private router: Router) {}
+  user = User;
+
+  activeTabIndex = 0;
+
+  constructor(private router: Router) {
+    this.listenToRouteChanges();
+  }
 
   ngOnInit() {}
 
@@ -21,11 +27,26 @@ export class NavbarComponent implements OnInit {
   }
 
   onTabChange(obj: MatTabChangeEvent) {
-    this.setActiveTab(obj.tab);
+    this.setActiveTab(obj.index);
     this.navigateTo(this.tabs[obj.index].url);
   }
 
-  setActiveTab(tab: MatTab) {
-    this.activeTab = tab;
+  setActiveTab(tab: number) {
+    this.activeTabIndex = tab;
+  }
+
+  isActiveTab(url: string) {
+    return this.router.isActive(url, false);
+  }
+
+  private listenToRouteChanges() {
+    this.router.events.subscribe(res => {
+      if (res instanceof NavigationEnd) {
+        const NewActiveTabIndex = this.tabs.findIndex(
+          tab => tab.url === res.urlAfterRedirects
+        );
+        this.setActiveTab(NewActiveTabIndex);
+      }
+    });
   }
 }

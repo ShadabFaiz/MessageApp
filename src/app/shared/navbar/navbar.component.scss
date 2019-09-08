@@ -14,7 +14,7 @@ mat-tab-group {
 }
 
 .rightSide {
-  width: 200px;
+  width: 300px;
 
   i {
     cursor: pointer;
@@ -22,16 +22,17 @@ mat-tab-group {
 
   i,
   span {
-    margin: 1% 6%;
+    margin: 1% 3%;
   }
   .user_profile {
-    width: 46px;
+    width: 146px;
     display: inline-block;
-    border-radius: 50%;
     overflow: hidden;
+    font-weight: 600;
 
     img {
-      width: 100%;
+      width: 25%;
+      border-radius: 50%;
     }
   }
 }

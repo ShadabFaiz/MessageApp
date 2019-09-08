@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { navigationOptions } from 'src/app/models/navigationOptions';
+import { User } from 'src/app/models/user';
 
 @Component({
   selector: "app-sidebar",
@@ -9,18 +10,12 @@ import { navigationOptions } from 'src/app/models/navigationOptions';
 })
 export class SidebarComponent implements OnInit {
   navigationOptions = navigationOptions;
-  user = {
-    name: "Testing User",
-    imgUrl: "/assets/images/batman.png",
-    quotes: "Some quotes goes here...."
-  };
+  user = User;
   constructor(private router: Router) {}
 
   ngOnInit() {}
 
   navigateTo(url: string) {
-    console.log(this.router.isActive("messages", false));
-
     this.router.navigateByUrl(url);
   }
 
