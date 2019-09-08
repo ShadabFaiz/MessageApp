@@ -1,0 +1,29 @@
+$background-color: rgb(233, 123, 141);
+$default-shadow: 1px 1px 10px #c4c4c4;
+$default-border: 1px solid gray;
+
+i {
+  color: $background-color;
+}
+.componentName {
+  font-size: 1.5em;
+  margin-left: 2%;
+  font-weight: 500;
+}
+
+.componentDescription {
+  margin: 0.5% auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+
+  i {
+    color: $background-color;
+    font-size: 2em;
+    text-shadow: $default-shadow;
+  }
+}
+
+.content {
+}
