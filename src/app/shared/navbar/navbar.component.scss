@@ -1,4 +1,5 @@
-$text-color: rgb(233, 123, 141);
+@import "../../globalVariables/styles.scss";
+$text-color: $active_icon-color;
 
 nav {
   background: white;
@@ -41,7 +42,7 @@ mat-tab-group {
   font-weight: 600;
 
   i {
-    color: $text-color;
+    color: $active_icon-color;
     // background: red;
   }
 }

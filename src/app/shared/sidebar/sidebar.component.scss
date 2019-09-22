@@ -1,8 +1,9 @@
+@import "../../globalVariables/styles.scss";
+
 $boder-radius: 5px;
 $text-color: rgb(233, 123, 141);
-$background-color: rgb(233, 123, 141);
 $activeTab: (
-  background: rgb(233, 123, 141),
+  background: $background-color,
   color: white
 );
 $default-shadow: 1px 1px 8px 2px #e0e0e0;

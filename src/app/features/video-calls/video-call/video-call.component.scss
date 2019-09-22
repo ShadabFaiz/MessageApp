@@ -1,9 +1,11 @@
+@import "../../../globalVariables/styles.scss";
+
 $background-color: rgb(233, 123, 141);
 $default-shadow: 1px 1px 10px #c4c4c4;
 $default-border: 1px solid gray;
 
 i {
-  color: $background-color;
+  color: $active_icon-color;
 }
 .componentName {
   font-size: 1.5em;
@@ -19,11 +21,8 @@ i {
   align-items: center;
 
   i {
-    color: $background-color;
+    color: $active_icon-color;
     font-size: 2em;
     text-shadow: $default-shadow;
   }
-}
-
-.content {
 }
